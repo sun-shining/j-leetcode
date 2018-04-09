@@ -29,7 +29,7 @@ class ListNode{
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode dump = new ListNode(0);//没有提供无参的构造器，所以第一个元素仅仅是为了构建起一个链表，印证最后返回dump的下一个节点
-        ListNode cur = dump;
+        ListNode cur = dump;//TODO这一步还是没太明白，为什么要定义一个新的节点指向dump呢？我试过，直接操作dump最后结果也不对。
         int carry = 0;
         while(l1!=null || l2!=null){
             int d1=l1==null?0:l1.val;
