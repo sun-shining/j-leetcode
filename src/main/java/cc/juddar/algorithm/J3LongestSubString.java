@@ -36,7 +36,8 @@ class J3Solution2 {
         while (right < s.length()) {
             if (!t.contains(s.charAt(right))) {
                 t.add(s.charAt(right++));
-            } else {
+                res = Math.max(res, t.size());
+            } else {//TODO 这个else看不懂啥意思
                 t.remove(s.charAt(left++));
             }
         }
