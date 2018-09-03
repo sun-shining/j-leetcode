@@ -1,6 +1,7 @@
 package cc.juddar.algorithm;
 
 import cc.juddar.anotation.NotComplete;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 
 /**
@@ -28,6 +29,7 @@ import org.junit.Assert;
     at __Driver__.main(__Driver__.java:48)
  */
 @NotComplete
+@Slf4j
 public class Aoti {
 
   public static void main(String[] args) {
