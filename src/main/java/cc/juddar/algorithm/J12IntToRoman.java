@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Author dasongju
  * @Date 2018/9/8 下午4:48
  */
-@Slf4j
+//@Slf4j
 public class J12IntToRoman {
 
     /**

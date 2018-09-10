@@ -48,7 +48,8 @@ public class J7ReverseInt {
   public static int reverse3(int x) {
     int res = 0;
     while (x != 0) {
-      if (Math.abs(x) > Integer.MAX_VALUE/10) //除以10除的道理在哪儿？
+      //res结果的绝对值，不是x
+      if (Math.abs(res) > Integer.MAX_VALUE/10) //除以10除的道理在哪儿？
         return 0;
       res = res*10 + x%10;
       x /= 10;
@@ -59,12 +60,9 @@ public class J7ReverseInt {
 
 
   public static void main(String[] args) {
-//    System.err.println(reverse2(2310));
-//    System.err.println(reverse2(-8930));
     System.err.println(Integer.MAX_VALUE);
+    System.err.println(reverse2(-2147483412));
     System.err.println(reverse3(-2147483412));
-    System.err.println(Integer.MIN_VALUE);
-    System.err.println(-2147483412 == Integer.MIN_VALUE);
 
   }
 }
