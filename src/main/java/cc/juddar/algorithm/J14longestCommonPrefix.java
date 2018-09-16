@@ -44,8 +44,8 @@ public class J14longestCommonPrefix {
     }
 
     public static void main(String[] args) {
-        String[] strs = new String[]{"flower","flow","flight"};
-        String s = J14longestCommonPrefix.longestCommonPrefix(strs);
+        String[] strs = new String[]{"flower","flow"};
+        String s = J14longestCommonPrefix.longestCommonPrefix2(strs);
         System.err.println(s);
     }
 }
