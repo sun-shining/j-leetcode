@@ -38,6 +38,7 @@ public class J20IsValid {
                 if (s.charAt(i) == ']' && validStack.lastElement() != '[') {
                     return false;
                 }
+                //如果是挨着的，就把栈顶的元素弹出，保证栈顶和待判定字符是一对
                 validStack.pop();
             }
         }
@@ -45,6 +46,6 @@ public class J20IsValid {
     }
 
     public static void main(String[] args) {
-        System.err.println(new J20IsValid().isValid("()"));
+        System.err.println(new J20IsValid().isValid("({[]})"));
     }
 }
