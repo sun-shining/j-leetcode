@@ -4,19 +4,22 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
- * 4.Median of Two Sorted Arrays
- * There are two sorted arrays nums1 and nums2 of size m and n respectively.
- * Find the median of the two sorted arrays.
- * The overall run time complexity should be O(log (m+n)).nums1 and nums2 不会同时为空
- * @author dasongju
- * 解法的思路是对两个数组进行二分查找
+ * 4.Median of Two Sorted Arrays There are two sorted arrays nums1 and nums2 of size m and n
+ * respectively. Find the median of the two sorted arrays. The overall run time complexity should be
+ * O(log (m+n)).nums1 and nums2 不会同时为空
+ *
+ * @author dasongju 解法的思路是对两个数组进行二分查找
  */
 public class J4MedianNum {
+
     public static void main(String[] args) {
-        int num[] = {1,3,4,5,7}; //5 2
-        int num2[] = {3,6,8,10}; //4 2
+        int num[] = {1, 3, 4, 5, 7}; //5 2
+        int num2[] = {3, 6, 8, 10}; //4 2
         double medianSorteArrays = J4Solution.findMedianSortArrays(num, num2);
         System.err.println(medianSorteArrays);
+
+        int num3[] = {10, 23, 3, 6, 15, 8, 9};
+        System.err.println(J4Solution.findKthInUnSortedArrays(num3, 1));
     }
 }
 
@@ -31,11 +34,9 @@ class J4Solution {
     }
 
     /**
-     *  第K大的数字
-     *  1.如果 nums1 数组的长度大于 nums2 数组的长度，将它们互换一下，这样可以让程序结束得快一些;
-     *  2.当 nums1 的长度为 0 时，直接返回 nums2 数组里第 k 小的数。当 k 等于 1 的时候，返回两个数组中的最小值;
-     *  3.找到i、j的值并更新i和j,缩小问题范围,在两个数组里执行二分查找;
-     *  4.比较一下两者的大小，如果相等，表明我们找到了中位数，返回它；如果不等的话，我们进行剪枝处理.
+     * 第K大的数字 1.如果 nums1 数组的长度大于 nums2 数组的长度，将它们互换一下，这样可以让程序结束得快一些; 2.当 nums1 的长度为 0 时，直接返回 nums2
+     * 数组里第 k 小的数。当 k 等于 1 的时候，返回两个数组中的最小值; 3.找到i、j的值并更新i和j,缩小问题范围,在两个数组里执行二分查找;
+     * 4.比较一下两者的大小，如果相等，表明我们找到了中位数，返回它；如果不等的话，我们进行剪枝处理.
      **/
     private static int findKth(int[] nums1, int[] nums2, int k) {
         int m = nums1.length, n = nums2.length;
@@ -58,5 +59,45 @@ class J4Solution {
             return findKth(Arrays.copyOfRange(nums1, i, m), nums2, k - i);
         }
     }
+
+    /**
+     *  扩展1 在未排序的数组中寻找第K大的数字，可以使用快速选择法（快速排序的特性）
+     *  比较令人迷惑的点是怎么判断K是第几大
+     **/
+    public static int findKthInUnSortedArrays(int[] nums, int k) {
+        return quickSelect(nums, 0, nums.length - 1, k);
+    }
+
+    private static int quickSelect(int[] nums, int left, int right, int k) {
+        //pivot是标尺 大于标尺的在右边 小于标尺的在左边
+        int pivot = left;
+        //把比基准值小的数放左边，把比基准值大的数放右边
+        for (int j = left; j < right; j++) {
+            if (nums[j] <= nums[right]) {
+                swap(nums, pivot++, j);
+            }
+        }
+        //
+        swap(nums, pivot, right);
+
+        int count = right - pivot + 1;
+
+        if (count == k) {
+            return nums[pivot];
+        }
+        //如果基准值小了,就往右边找
+        if (count > k) {
+            return quickSelect(nums, pivot + 1, right, k);
+        }
+        //如果基准值大了,就往左边找,并且缩小查找的范围
+        return quickSelect(nums, left, pivot - 1, k - count);
+    }
+
+    public static void swap(int[] nums, int i, int j) {
+        int tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
+
 
 }
