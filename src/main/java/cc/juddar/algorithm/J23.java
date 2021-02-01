@@ -1,7 +1,5 @@
 package cc.juddar.algorithm;
 
-import com.alibaba.fastjson.JSON;
-
 /**
  * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its
  * complexity.
@@ -10,6 +8,7 @@ import com.alibaba.fastjson.JSON;
  *
  * Input: [ 1->4->5, 1->3->4, 2->6 ] Output: 1->1->2->3->4->4->5->6
  * 思路1：利用分治的思路,将K个链表最终变成两个链表的合并
+ * {@link J21}
  * @author dasongju
  */
 public class J23 {
@@ -54,13 +53,14 @@ public class J23 {
     }
 
     private static ListNode mergeTwoLists(ListNode a, ListNode b) {
+        //条件判断
         if (a == null) {
             return b;
         }
         if (b == null) {
             return a;
         }
-
+        //缩小问题规模
         if (a.val <= b.val) {
             a.next = mergeTwoLists(a.next, b);
             return a;
