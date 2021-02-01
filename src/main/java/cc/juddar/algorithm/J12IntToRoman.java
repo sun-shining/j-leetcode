@@ -3,13 +3,14 @@ package cc.juddar.algorithm;
 import java.util.Arrays;
 import java.util.Vector;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.BasicConfigurator;
 
 /**
  * @Description 整数转罗马数字，和13题类似
  * @Author dasongju
  * @Date 2018/9/8 下午4:48
  */
-//@Slf4j
+@Slf4j
 public class J12IntToRoman {
 
     /**
@@ -82,6 +83,8 @@ public class J12IntToRoman {
     }
 
     public static void main(String[] args) {
-//        log.debug("test  debug");
+//        BasicConfigurator.configure();
+        log.error("test  debug");
+//        log.info("test");
     }
 }
