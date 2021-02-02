@@ -53,7 +53,7 @@ public class J23 {
     }
 
     private static ListNode mergeTwoLists(ListNode a, ListNode b) {
-        //条件判断
+        //条件判断,递归退出的条件即仅剩一个元素时的处理方式
         if (a == null) {
             return b;
         }
