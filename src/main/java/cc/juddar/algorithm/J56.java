@@ -2,9 +2,6 @@ package cc.juddar.algorithm;
 
 import com.alibaba.fastjson.JSON;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Vector;
 
 /**
