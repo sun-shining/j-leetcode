@@ -1,6 +1,5 @@
 package cc.juddar.algorithm;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -15,10 +14,10 @@ public class J4MedianNum {
     public static void main(String[] args) {
         int num[] = {1, 3, 4, 5, 7}; //5 2
         int num2[] = {3, 6, 8, 10}; //4 2
-        double medianSorteArrays = J4Solution.findMedianSortArrays(num, num2);
-        System.err.println(medianSorteArrays);
+        double medianSortedArrays = J4Solution.findMedianSortArrays(num, num2);
+        System.err.println(medianSortedArrays);
 
-        int num3[] = {10, 23, 3, 6, 15, 8, 9};
+        int num3[] = {10, 9, 3, 6, 15, 8, 23};
         System.err.println(J4Solution.findKthInUnSortedArrays(num3, 1));
     }
 }
@@ -34,8 +33,11 @@ class J4Solution {
     }
 
     /**
-     * 第K大的数字 1.如果 nums1 数组的长度大于 nums2 数组的长度，将它们互换一下，这样可以让程序结束得快一些; 2.当 nums1 的长度为 0 时，直接返回 nums2
-     * 数组里第 k 小的数。当 k 等于 1 的时候，返回两个数组中的最小值; 3.找到i、j的值并更新i和j,缩小问题范围,在两个数组里执行二分查找;
+     * 第K大的数字
+     * 1.如果 nums1 数组的长度大于 nums2 数组的长度，将它们互换一下，这样可以让程序结束得快一些;
+     * 2.当 nums1 的长度为 0 时，直接返回 nums2
+     *   数组里第 k 小的数。当 k 等于 1 的时候，返回两个数组中的最小值;
+     * 3.找到i、j的值并更新i和j,缩小问题范围,在两个数组里执行二分查找;
      * 4.比较一下两者的大小，如果相等，表明我们找到了中位数，返回它；如果不等的话，我们进行剪枝处理.
      **/
     private static int findKth(int[] nums1, int[] nums2, int k) {

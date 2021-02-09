@@ -14,12 +14,10 @@ public class RoundRobin {
     public static String getServer() {
         // 重建一个Map，避免服务器的上下线导致的并发问题
         //key 是IP value是权重
-        Map<String, Integer> serverMap = new ConcurrentHashMap<>();
-        serverMap.putAll(IpMap.serverWeightMap);
+        Map<String, Integer> serverMap = new ConcurrentHashMap<>(IpMap.serverWeightMap);
         // 取得Ip地址List
         Set<String> keySet = serverMap.keySet();
-        ArrayList<String> keyList = new ArrayList<String>();
-        keyList.addAll(keySet);
+        ArrayList<String> keyList = new ArrayList<>(keySet);
         String server = null;
         synchronized (RoundRobin.class) {
             if (pos >= keySet.size())
