@@ -2,9 +2,11 @@ package cc.juddar.algorithm;
 
 import com.alibaba.fastjson.JSON;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Vector;
 
 /**
+ * 插入间隔
  * Given a set of non-overlapping intervals, insert a new interval into the intervals (merge if
  * necessary).
  *
@@ -22,11 +24,11 @@ import java.util.Vector;
  * Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
  * NOTE: input types have been changed on April 15, 2019. Please reset to
  * default code definition to get new method signature.
- * {@link J56}
+ * {@link J56InsertInterval}
  * @Author dasongju
  * @Date 2021/2/2 14:28
  */
-public class J57 {
+public class J57MergeIntervals {
 
     public static void main(String[] args) {
         Vector<Integer> vector1 = new Vector<>(Arrays.asList(1,2));
@@ -68,6 +70,6 @@ public class J57 {
     }
 
     private static void sortVectorByFirstElement(Vector<Vector<Integer>> vectors) {
-        vectors.sort((o1, o2) -> 0 <= o1.firstElement() - o2.firstElement() ? 1 : -1);
+        vectors.sort(Comparator.comparingInt(Vector::firstElement));
     }
 }

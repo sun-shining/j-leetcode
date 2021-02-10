@@ -2,9 +2,11 @@ package cc.juddar.algorithm;
 
 import com.alibaba.fastjson.JSON;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Vector;
 
 /**
+ * 合并区间，无重叠区间
  * Given a collection of intervals, merge all overlapping intervals. 给定一组组合，合并有重叠的组合
  * Example 1:
  *
@@ -17,11 +19,11 @@ import java.util.Vector;
  * Input: [[1,4],[4,5]] Output: [[1,5]] Explanation: Intervals [1,4] and [4,5] are considered
  * overlapping. NOTE: input types have been changed on April 15, 2019. Please reset to default code
  * definition to get new method signature.
- *{@link J57}
+ *{@link J57MergeIntervals}
  * @Author dasongju
  * @Date 2021/2/2 10:54
  */
-public class J56 {
+public class J56InsertInterval {
 
     /**
      *  1.没有提到给定的区间们是否有序,那就要考虑无序的情况;
@@ -40,8 +42,12 @@ public class J56 {
         System.out.println("merge = " + JSON.toJSONString(merge));
     }
 
-    private static void sortVectorByFirstElement(Vector<Vector<Integer>> vectors) {
-        vectors.sort((o1, o2) -> 0 <= o1.firstElement() - o2.firstElement() ? 1 : -1);
+    public static void sortVectorByFirstElement(Vector<Vector<Integer>> vectors) {
+        vectors.sort(Comparator.comparingInt(Vector::firstElement));
+    }
+
+    public static void sortVectorByLastElement(Vector<Vector<Integer>> vectors) {
+        vectors.sort(Comparator.comparingInt(Vector::lastElement));
     }
 
     public static Vector<Vector<Integer>> merge(Vector<Vector<Integer>> vectors) {
