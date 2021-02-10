@@ -56,6 +56,8 @@ public class J435NonOverlappingIntervals {
             Arrays.asList(vector1, vector2, vector3, vector4));
 
         Vector<Vector<Integer>> afterRemove = removeOverlap(vectors);
+        int i = eraseOverlapInters(vectors);
+        System.out.println("i = " + i);
         System.out.println("vectors = " + JSON.toJSONString(vectors));
         System.out.println("merge = " + JSON.toJSONString(afterRemove));
     }
@@ -78,7 +80,7 @@ public class J435NonOverlappingIntervals {
         return vector;
     }
 
-    private int eraseOverlapInters(Vector<Vector<Integer>> vectors) {
+    private static int eraseOverlapInters(Vector<Vector<Integer>> vectors) {
         if (vectors.size() == 0) {
             return 0;
         }
