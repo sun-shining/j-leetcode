@@ -19,16 +19,19 @@ import java.util.Stack;
  *
  * You may assume that the given expression is always valid. Do not use the eval built-in library
  * function.
- * {@link J722BasicCalculator}
+ * {@link J227BasicCalculatorTwo}
+ * {@link J772BasicCalculatorThree}
+ * {@link J227Extra}
  * @Author dasongju
  * @Date 2021/2/11 09:51
  */
 public class J224BasicCalculator {
 
     public static void main(String[] args) {
-        String input = "(1+(421+5+2)-3)+(6+8)";
+        String input = "(1+(4+5+3)-3)+(6+8)";
         System.out.println("num = " + basicCalculator(input));
     }
+
     public static Integer basicCalculator(String input) {
         Stack<Integer> stack = new Stack<>();
         int result = 0;
@@ -55,6 +58,7 @@ public class J224BasicCalculator {
                 result = 0;
                 sign = 1;
             } else if (c == ')'){
+                //此处对应 push出的sign，后进先出，用*法代替了+ -
                 result *= stack.pop();
                 result += stack.pop();
             }
