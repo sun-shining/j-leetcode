@@ -15,7 +15,7 @@ import cc.juddar.other.ArrayUtils;
  *
  * Output: [1,2,2,3,5,6]
  *
- * {@link J21} {@link J23}
+ * {@link J21MergeTwoSortedLists} {@link J23MergeKSortedLists}
  *
  * @Author dasongju
  * @Date 2021/2/1 18:00

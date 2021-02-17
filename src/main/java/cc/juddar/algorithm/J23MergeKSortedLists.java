@@ -8,10 +8,10 @@ package cc.juddar.algorithm;
  *
  * Input: [ 1->4->5, 1->3->4, 2->6 ] Output: 1->1->2->3->4->4->5->6
  * 思路1：利用分治的思路,将K个链表最终变成两个链表的合并
- * {@link J21}
+ * {@link J21MergeTwoSortedLists}
  * @author dasongju
  */
-public class J23 {
+public class J23MergeKSortedLists {
 
     public static void main(String[] args) {
         ListNode[] listNodes = new ListNode[3];

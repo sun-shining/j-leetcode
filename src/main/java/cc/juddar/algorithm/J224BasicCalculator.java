@@ -3,7 +3,7 @@ package cc.juddar.algorithm;
 import java.util.Stack;
 
 /**
- * 基本计算器，只有加减法
+ * 基本计算器，只有加减法 和 括号
  * Implement a basic calculator to evaluate a simple expression string.
  *
  * The expression string may contain open ( and closing parentheses ), the plus + or minus sign -,

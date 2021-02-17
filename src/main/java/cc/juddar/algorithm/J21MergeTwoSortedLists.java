@@ -8,12 +8,12 @@ package cc.juddar.algorithm;
  *
  * Input: 1->2->4, 1->3->4 Output: 1->1->2->3->4->4
  *
- * {@link J23}
+ * {@link J23MergeKSortedLists}
  *
  * @Author dasongju
  * @Date 2021/2/1 17:26
  */
-public class J21 {
+public class J21MergeTwoSortedLists {
 
     public static void main(String[] args) {
         ListNode node1 = new ListNode(4);
@@ -24,7 +24,7 @@ public class J21 {
         node2.next.next = new ListNode(4);
         ListNode result = merge2SortedList(node1, node2);
         assert result != null;
-        J23.printListNodeItem(result);
+        J23MergeKSortedLists.printListNodeItem(result);
     }
 
     private static ListNode merge2SortedList(ListNode node1, ListNode node2) {

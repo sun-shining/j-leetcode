@@ -3,7 +3,7 @@ package cc.juddar.algorithm;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * Implement a basic calculator to evaluate a simple expression string.
+ * 基本计算器：加减乘除 括号 Implement a basic calculator to evaluate a simple expression string.
  *
  * The expression string may contain open ( and closing parentheses ), the plus + or minus sign -,
  * non-negative integers and empty spaces .
@@ -19,8 +19,8 @@ import org.apache.commons.lang.StringUtils;
  * "1 + 1" = 2 " 6-4 / 2 " = 4 "2*(5+5*2)/3+(6/2+8)" = 21 "(2+6* 3+5- (3*14/7+2)*5)+3"=-12
  *
  *
- * Note: Do not use the eval built-in library function. {@link J227BasicCalculatorTwo} {@link
- * J722RemoveComments} {@link J224BasicCalculator}
+ * Note: Do not use the eval built-in library function. {@link J227BasicCalculatorTwo}  {@link
+ * J224BasicCalculator}
  *
  * @Author dasongju
  * @Date 2021/2/12 18:07
@@ -65,12 +65,20 @@ public class J772BasicCalculatorThree {
             }
             if (c == '+' || c == '-' || c == '*' || c == '/' || i == n - 1) {
                 switch (op) {
-                    case '+': curRes += num; break;
-                    case '-': curRes -= num; break;
-                    case '*': curRes *= num; break;
-                    case '/': curRes /= num; break;
+                    case '+':
+                        curRes += num;
+                        break;
+                    case '-':
+                        curRes -= num;
+                        break;
+                    case '*':
+                        curRes *= num;
+                        break;
+                    case '/':
+                        curRes /= num;
+                        break;
                 }
-                if (c == '+' || c == '-'  || i == n - 1) {
+                if (c == '+' || c == '-' || i == n - 1) {
                     res += curRes;
                     curRes = 0;
                 }
